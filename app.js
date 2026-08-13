@@ -1,4 +1,4 @@
-let networkData = [];
+let liveNetworkData = [];
 
 const API_URL =
     "https://wireless-noc-dashboard-epgfguawfddyb7am.centralus-01.azurewebsites.net/api/getSites";
@@ -178,12 +178,14 @@ function updateSummary(data) {
     const critical =
         analyzedSites.filter(site => site.status === "Critical").length;
 
-    const averageLatency = Math.round(
-        analyzedSites.reduce(
-            (total, site) => total + site.latency,
-            0
-        ) / analyzedSites.length
-    );
+    const averageLatency = analyzedSites.length
+        ? Math.round(
+              analyzedSites.reduce(
+                  (total, site) => total + site.latency,
+                  0
+              ) / analyzedSites.length
+          )
+        : 0;
 
     document.getElementById("total-sites").textContent =
         analyzedSites.length;
@@ -202,7 +204,7 @@ function updateSummary(data) {
 }
 
 function displaySites(filter = "All") {
-    const filteredData = networkData.filter(site => {
+    const filteredData = liveNetworkData.filter(site => {
         const status =
             determineStatus(
                 calculateHealth(site)
@@ -224,11 +226,11 @@ async function loadSites() {
 
         const data = await response.json();
 
-        networkData = Array.isArray(data)
+        liveNetworkData = Array.isArray(data)
             ? data
             : data.sites;
 
-        updateSummary(networkData);
+        updateSummary(liveNetworkData);
 
         const currentFilter =
             document.getElementById("status-filter").value;
