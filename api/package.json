@@ -1,0 +1,16 @@
+{
+  "name": "wireless-noc-dashboard",
+  "version": "1.0.0",
+  "description": "Wireless Network Operations Dashboard with Azure Functions",
+  "main": "app.js",
+  "scripts": {
+    "start": "func start",
+    "build": "echo Build completed"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.16.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
