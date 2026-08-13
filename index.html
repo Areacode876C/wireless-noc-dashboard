@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Wireless Network Operations Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<header class="top-bar">
+
+    <div>
+
+        <p class="eyebrow">
+            CLOUD NETWORK MONITORING
+        </p>
+
+        <h1>
+            Wireless Network Operations Dashboard
+        </h1>
+
+        <p class="subtitle">
+            Synthetic LTE and 5G Cell Site Performance Monitoring
+        </p>
+
+    </div>
+
+    <div class="cloud-badge">
+        Azure Hosted
+    </div>
+
+</header>
+
+<main>
+
+    <section
+        class="metric-grid"
+        id="metric-grid"
+    >
+
+        <article class="metric-card">
+            <span>Total Sites</span>
+            <strong id="total-sites">0</strong>
+        </article>
+
+        <article class="metric-card healthy-card">
+            <span>Healthy</span>
+            <strong id="healthy-sites">0</strong>
+        </article>
+
+        <article class="metric-card degraded-card">
+            <span>Degraded</span>
+            <strong id="degraded-sites">0</strong>
+        </article>
+
+        <article class="metric-card critical-card">
+            <span>Critical</span>
+            <strong id="critical-sites">0</strong>
+        </article>
+
+        <article class="metric-card">
+            <span>Average Latency</span>
+            <strong>
+                <span id="average-latency">0</span>
+                <small>ms</small>
+            </strong>
+        </article>
+
+    </section>
+
+    <section class="dashboard-controls">
+
+        <div>
+
+            <h2>
+                Cell Site Performance
+            </h2>
+
+            <p>
+                Review health, KPIs, likely issue
+                domain, and recommended action.
+            </p>
+
+        </div>
+
+        <label>
+
+            Filter by status
+
+            <select id="status-filter">
+
+                <option value="All">
+                    All Sites
+                </option>
+
+                <option value="Healthy">
+                    Healthy
+                </option>
+
+                <option value="Degraded">
+                    Degraded
+                </option>
+
+                <option value="Critical">
+                    Critical
+                </option>
+
+            </select>
+
+        </label>
+
+    </section>
+
+    <section
+        class="site-grid"
+        id="site-grid"
+    ></section>
+
+    <section class="assumptions">
+
+        <h2>
+            Demo Assumptions
+        </h2>
+
+        <p>
+            All sites, locations, KPIs,
+            recommendations, and health
+            classifications shown in this
+            dashboard are synthetic and are
+            intended solely for demonstration.
+        </p>
+
+    </section>
+
+</main>
+
+<script src="network-data.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
